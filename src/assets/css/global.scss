@@ -1,0 +1,253 @@
+@import url(./LayoutAdmin.scss);
+@import url(./manager.scss);
+@import url(./modal.scss);
+
+dl,
+ol,
+ul {
+  margin-top: 0;
+  margin-bottom: 1em;
+  list-style: none;
+}
+
+a,
+a:hover {
+  color: inherit;
+}
+
+html {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+}
+
+:root {
+  --color-seconds: #3a3e43;
+  --easing: cubic-bezier(0.65, 0.05, 0.36, 1);
+  --color-primary: #da2525;
+  --color-primary-hover: rgb(197, 54, 54);
+  --color-text-title: #3a434b;
+  --color-text: #717171;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+::-webkit-scrollbar {
+  background-color: inherit;
+  height: 2px;
+  position: absolute;
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #b5b4b4;
+  border-radius: 10px;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  outline: none;
+}
+
+a {
+  background-color: transparent;
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+iframe,
+video {
+  max-width: 100%;
+  margin-top: 0;
+}
+
+iframe {
+  z-index: -1 !important;
+}
+
+.content {
+  width: 100%;
+  max-width: 1340px;
+  padding: 0 15px;
+  margin: auto;
+}
+
+/* pathway */
+.pathway {
+  margin-top: 3rem;
+}
+
+.pathway ul {
+  display: flex;
+  align-items: center;
+}
+
+.pathway ul li {
+  margin: 0 10px;
+}
+
+.pathway ul li strong {
+  color: var(--color-primary-hover);
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 5px;
+  }
+}
+
+.button-nomal {
+  padding: 4px 5px;
+  background-color: #fff;
+  color: var(--color-text-title);
+}
+
+.button-primary {
+  background-color: var(--color-primary);
+  padding: 4px 5px;
+  color: #fff;
+}
+
+.button-primary:hover {
+  background: var(--color-primary-hover);
+  color: #fff;
+}
+
+.button-deny:hover,
+.button-deny:focus {
+  border-color: #40a9ff;
+  background: #40a9ff;
+  color: #fff;
+}
+
+.ant-btn:hover,
+.ant-btn:focus {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.button-primary:hover {
+  background: var(--color-primary-hover);
+  color: #fff;
+}
+
+.ant-layout-header {
+  background-color: #fff;
+}
+
+.ant-table-thead>tr>th,
+.ant-table-tbody>tr>td,
+.ant-table tfoot>tr>th,
+.ant-table tfoot>tr>td {
+  padding: 10px 7px;
+}
+
+.ant-modal-footer .ant-btn-primary {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+}
+
+.ant-modal-footer .ant-btn-primary:focus,
+.ant-modal-footer .ant-btn-primary:hover {
+  color: #fff;
+}
+
+.ant-pagination-item-active {
+  background: var(--color-primary);
+  border-color: var(--color-primary-hover);
+  color: #fff;
+}
+
+.ant-pagination-item-active a {
+  color: #fff;
+}
+
+.ant-pagination-item:focus-visible,
+.ant-pagination-item:hover {
+  border-color: var(--color-primary);
+}
+
+.ant-pagination-item:focus-visible a,
+.ant-pagination-item:hover a {
+  color: var(--color-primary);
+}
+
+.ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-link-icon,
+.ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-link-icon {
+  color: var(--color-primary);
+}
+
+.ant-pagination-prev:focus-visible .ant-pagination-item-link,
+.ant-pagination-next:focus-visible .ant-pagination-item-link,
+.ant-pagination-prev:hover .ant-pagination-item-link,
+.ant-pagination-next:hover .ant-pagination-item-link {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.ant-modal-title {
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 35px;
+}
+
+.ant-input {
+  padding: 7px 11px;
+  border-radius: 11px;
+}
+
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  height: 38px;
+}
+
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input {
+  height: 100%;
+}
+
+.ant-select-single .ant-select-selector .ant-select-selection-item {
+  top: 3px;
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  border-radius: 11px;
+}

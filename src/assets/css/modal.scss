@@ -1,0 +1,214 @@
+// chart
+.line {
+  margin-top: 20px !important;
+  margin-left: 25px !important;
+
+  div {
+    canvas {
+      height: 364px !important;
+    }
+  }
+}
+
+// modal
+.ModalAddUser-wrapper {
+  button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    padding: 4px 11px;
+    border: none;
+    background-color: #f95a5a;
+    color: #fff;
+    font-size: 16px;
+
+    span {
+      color: #fff;
+      font-size: 16px;
+      margin-right: 6px;
+    }
+  }
+}
+
+.ant-modal-content {
+  box-shadow: none;
+
+  .ant-modal-header {
+    .ant-modal-title {
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
+
+  .ant-modal-body {
+    padding: 10px 24px;
+  }
+}
+
+form {
+  .ant-row {
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .ant-form-item-label {
+    label {
+      font-weight: 600;
+
+      &::before {
+        content: none !important;
+      }
+
+      &::after {
+        content: "*";
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  .ant-form-item-control {
+    width: 100%;
+
+    .ant-form-item-control-input {
+      input {
+        // border: none;
+        // border-bottom: 1px solid #ccc;
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+
+      .ant-input-focused {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: #747474;
+}
+
+.ant-select-focused:not(.ant-select-disabled).ant-select:not(
+    .ant-select-customize-input
+  )
+  .ant-select-selector {
+  box-shadow: none;
+}
+
+// todo
+.TodoWork-wrapper {
+  margin: 26px 0px 0;
+  max-height: 358px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 11.5px -4px #0000003d;
+
+  h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #525252;
+    padding: 6px 2px;
+    border-bottom: 1px solid #ccc;
+
+    span {
+      margin-right: 6px;
+    }
+  }
+
+  form {
+    border-bottom: 1px solid #ccc;
+
+    input {
+      width: 82%;
+      outline: none;
+      border: none;
+      padding: 5px 6px;
+    }
+
+    button {
+      border: none;
+      width: 18%;
+      color: #fff;
+      padding: 5px 0px;
+      background-color: rgb(226, 41, 28);
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 11px 14px;
+    max-height: 246px;
+    overflow-y: scroll;
+
+    li {
+      padding: 9px 0px;
+      background-color: #f8f9fa;
+      border-left: 3px solid #d0d0d0;
+      margin: 5px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      div {
+        display: flex;
+        align-items: center;
+
+        .list {
+          font-size: 20px;
+        }
+
+        input[type="checkbox"] {
+          /* Double-sized Checkboxes */
+          -ms-transform: scale(1.4);
+          /* IE */
+          -moz-transform: scale(1.4);
+          /* FF */
+          -webkit-transform: scale(1.4);
+          /* Safari and Chrome */
+          -o-transform: scale(1.4);
+          /* Opera */
+          transform: scale(1.4);
+          padding: 10px;
+        }
+
+        input {
+          margin: 0 6px;
+        }
+      }
+
+      i {
+        margin-right: 9px;
+        color: #da2929;
+        opacity: 0.5;
+      }
+    }
+
+    .done {
+      span,
+      input {
+        text-decoration: line-through;
+        opacity: 0.5;
+      }
+
+      i {
+        opacity: 1;
+      }
+    }
+  }
+}
+.CourseManagement-wrapper
+  form
+  .ant-form-item-control
+  .ant-form-item-control-input
+  input {
+  border-bottom: none;
+}
+.ant-checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
