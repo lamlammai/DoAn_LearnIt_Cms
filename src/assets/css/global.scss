@@ -175,10 +175,10 @@ iframe {
   background-color: #fff;
 }
 
-.ant-table-thead>tr>th,
-.ant-table-tbody>tr>td,
-.ant-table tfoot>tr>th,
-.ant-table tfoot>tr>td {
+.ant-table-thead > tr > th,
+.ant-table-tbody > tr > td,
+.ant-table tfoot > tr > th,
+.ant-table tfoot > tr > td {
   padding: 10px 7px;
 }
 
@@ -212,8 +212,12 @@ iframe {
   color: var(--color-primary);
 }
 
-.ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-link-icon,
-.ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-link-icon {
+.ant-pagination-jump-prev
+  .ant-pagination-item-container
+  .ant-pagination-item-link-icon,
+.ant-pagination-jump-next
+  .ant-pagination-item-container
+  .ant-pagination-item-link-icon {
   color: var(--color-primary);
 }
 
@@ -240,7 +244,9 @@ iframe {
   height: 38px;
 }
 
-.ant-select-single:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input {
+.ant-select-single:not(.ant-select-customize-input)
+  .ant-select-selector
+  .ant-select-selection-search-input {
   height: 100%;
 }
 
@@ -250,4 +256,10 @@ iframe {
 
 .ant-select:not(.ant-select-customize-input) .ant-select-selector {
   border-radius: 11px;
+}
+.action {
+  padding: 1px 9px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
 }

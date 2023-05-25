@@ -95,18 +95,10 @@ export default function ModalAddExercise(props) {
                             justifyContent: "space-between",
                           }}
                         >
-                          <Form.Item
-                            name={[index, "input"]}
-                            label="Input"
-                            rules={[{ required: true }]}
-                          >
+                          <Form.Item name={[index, "input"]} label="Input">
                             <TextArea />
                           </Form.Item>
-                          <Form.Item
-                            name={[index, "output"]}
-                            label="Output"
-                            rules={[{ required: true }]}
-                          >
+                          <Form.Item name={[index, "output"]} label="Output">
                             <TextArea />
                           </Form.Item>
                         </div>

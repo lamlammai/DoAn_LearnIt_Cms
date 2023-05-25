@@ -47,14 +47,16 @@ export default function ModalAddLesson(props) {
     formData.append("file", file);
     formData.append("upload_preset", "descriptionCourse");
     console.log({ formData });
-    await axios
-      .post(
+    try {
+      const { data } = await axios.post(
         "https://api.cloudinary.com/v1_1/learnit2022/video/upload",
         formData
-      )
-      .then((response) => setVideoUrl(response.data.secure_url))
-      .catch((err) => console.error({ err }));
-    return videoUrl;
+      );
+      setVideoUrl(data?.secure_url);
+      return data.secure_url;
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

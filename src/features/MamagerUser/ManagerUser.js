@@ -8,23 +8,7 @@ import LayoutAdmin from "../../components/LayoutAdmin/LayoutAdmin";
 
 function ManagerUser() {
   const [data, setData] = useState([]);
-  const dataClone = [
-    {
-      name: "Nguyễn Văn A",
-      email: "tets@gmail.com",
-      roles: "ADMIN",
-    },
-    {
-      name: "Nguyễn Văn A",
-      email: "tets@gmail.com",
-      roles: "MOD",
-    },
-    {
-      name: "Nguyễn Văn A",
-      email: "tets@gmail.com",
-      roles: "ADMIN",
-    },
-  ];
+
   const columns = [
     {
       title: "STT",
@@ -81,7 +65,7 @@ function ManagerUser() {
   const listUser = async () => {
     const res = await sendGet("/users");
     if (res.statusCode === 200) {
-      setData(res.returnCode?.data);
+      setData(res.returnValue?.data?.data);
     } else {
       message.error("Cập nhật User thất bại");
     }

@@ -28,7 +28,19 @@ function CourseManagement() {
       key: "name",
       width: "35%",
     },
-
+    {
+      title: "Ngôn ngữ",
+      dataIndex: "language",
+      key: "language",
+      width: "10%",
+    },
+    {
+      title: "Giá",
+      dataIndex: "price",
+      key: "price",
+      width: "10%",
+      render: (price) => <>{price == 0 ? "Miễn phí" : <>{price} xu</>}</>,
+    },
     {
       title: "Lộ trình",
       dataIndex: "path",
@@ -68,7 +80,7 @@ function CourseManagement() {
       title: "Trạng thái",
       key: "status",
       dataIndex: "status",
-      width: "15%",
+      width: "12%",
       render: (status) => (
         <>
           <Badge
@@ -136,6 +148,8 @@ function CourseManagement() {
       path: data[i].path,
       id: data[i].id,
       status: data[i].status,
+      language: data[i].language,
+      price: data[i].price,
     });
   }
   return (

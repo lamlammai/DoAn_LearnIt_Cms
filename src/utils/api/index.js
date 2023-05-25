@@ -25,7 +25,7 @@ axiosInstance.interceptors.request.use(
 const logout = () => {
   clearToken();
   clearRefreshToken();
-  history.replace("/");
+  window.location.href("/dang-nhap");
 };
 
 axiosInstance.interceptors.response.use(

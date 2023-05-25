@@ -150,7 +150,7 @@ export default function CourseItem() {
                     <Select placeholder="Ngôn ngữ">
                       <Option value="c">C </Option>
                       <Option value="java">JAVA </Option>
-                      <Option value="javascript">JavaScript </Option>
+                      <Option value="python3">PYTHON </Option>
                     </Select>
                   </Form.Item>
                   <Form.Item

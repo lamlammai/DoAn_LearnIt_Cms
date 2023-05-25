@@ -34,6 +34,7 @@ export default function ListLesson() {
       dataIndex: "excercises",
       key: "excercises",
       width: "10%",
+      render: (_, value) => <p>{value.exercises.length} bài</p>,
     },
     {
       title: "Action",
@@ -71,8 +72,8 @@ export default function ListLesson() {
   const [lesson, setLesson] = useState([]);
   const params = useParams();
   const handleDelete = async (key) => {
-    const del = await sendDelete(`/lessons/admin/${params.id}/${key}`);
-    if (del.status === 200) {
+    const del = await sendDelete(`/lessons/${key}`);
+    if (del.statusCode === 200) {
       await getLesson();
     } else {
       message.error("Cập nhật bài tập thất bại");
@@ -104,7 +105,6 @@ export default function ListLesson() {
         rowKey={(record) => record.id}
         columns={columns}
         dataSource={lesson}
-        scroll={{ y: 320 }}
       />
     </>
   );
