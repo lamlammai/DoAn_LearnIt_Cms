@@ -3,6 +3,7 @@ import { Table, Tag, Tabs, Space, Popconfirm, message, Skeleton } from "antd";
 import { sendDelete, sendGet } from "../../utils/api";
 import LayoutAdmin from "../../components/LayoutAdmin/LayoutAdmin";
 import UnprocessPost from "./UnprocessedPost";
+import UpdatePost from "./UpdatePost";
 
 function PostManager() {
   const columns = [
@@ -92,12 +93,15 @@ function PostManager() {
       <LayoutAdmin>
         <div className="ManagerUser-wrapper">
           <h1>Quản lý bài viết</h1>
-          <Tabs defaultActiveKey="1">
-            <Tabs.TabPane tab="Danh sách bài viết" key="1">
-              <Table columns={columns} dataSource={data} scroll={{ y: 320 }} />
-            </Tabs.TabPane>
+          <Tabs defaultActiveKey="2">
             <Tabs.TabPane tab="Chưa xử lý" key="2">
               <UnprocessPost />
+            </Tabs.TabPane>
+            <Tabs.TabPane tab="Duyệt lại" key="3">
+              <UpdatePost />
+            </Tabs.TabPane>{" "}
+            <Tabs.TabPane tab="Danh sách bài viết" key="1">
+              <Table columns={columns} dataSource={data} scroll={{ y: 320 }} />
             </Tabs.TabPane>
           </Tabs>
           ;

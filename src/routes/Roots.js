@@ -15,8 +15,11 @@ const Signin = lazy(() => import("../page/Signin"));
 const LessonDetail = lazy(() =>
   import("../features/CourseDetail/LessonDetail")
 );
-const ManagerAdmin = lazy(() => import("../features/managerAdmin/ManagerAdmin"));
+const ManagerAdmin = lazy(() =>
+  import("../features/managerAdmin/ManagerAdmin")
+);
 const ActiveAdmin = lazy(() => import("../features/managerAdmin/ActiveAdmin"));
+const UpdatePost = lazy(() => import("../features/PostManager/DetailUpdate"));
 
 /**
  * define main pages routes
@@ -74,6 +77,12 @@ const RoutePage = [
     path: "/xu-ly-bai-viet/:id",
     exact: true,
     component: Detail,
+    authen: true,
+  },
+  {
+    path: "/xu-ly-bai-viet-update/:id",
+    exact: true,
+    component: UpdatePost,
     authen: true,
   },
   {

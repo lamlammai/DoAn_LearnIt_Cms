@@ -4,7 +4,7 @@ import { sendDelete, sendGet } from "../../utils/api";
 import LayoutAdmin from "../../components/LayoutAdmin/LayoutAdmin";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-function UnprocessPost() {
+function UpdatePost() {
   const columns = [
     {
       title: "STT",
@@ -75,7 +75,7 @@ function UnprocessPost() {
         <Space size="middle">
           <div className="action" style={{ backgroundColor: "#1890ff" }}>
             <Link
-              to={`/xu-ly-bai-viet/${record?.id}`}
+              to={`/xu-ly-bai-viet-update/${record?.id}`}
               style={{ color: "#fff" }}
             >
               Xem
@@ -100,7 +100,7 @@ function UnprocessPost() {
     try {
       const res = await sendDelete(`/posts/admin/${key}`);
       if (res.statusCode === 200) {
-        await pendingTopic();
+        await updateTopic();
       } else {
         message.error("Lỗi kĩ thuật");
       }
@@ -108,9 +108,9 @@ function UnprocessPost() {
       message.error("Lỗi kĩ thuật");
     }
   };
-  const pendingTopic = async () => {
+  const updateTopic = async () => {
     const res = await sendGet("/posts/admin", {
-      status: "PENDING",
+      status: "WAITING",
     });
     if (res.statusCode === 200) {
       setData(res.returnValue?.data?.data);
@@ -119,7 +119,7 @@ function UnprocessPost() {
     }
   };
   useEffect(() => {
-    pendingTopic();
+    updateTopic();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
@@ -129,4 +129,4 @@ function UnprocessPost() {
   );
 }
 
-export default UnprocessPost;
+export default UpdatePost;
