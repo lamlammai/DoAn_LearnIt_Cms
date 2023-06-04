@@ -16,13 +16,11 @@ export default function ModalEditExercise(props) {
   const onFinish = async (values) => {
     setIsModalVisible(false);
     //thay doi
-    const res = await sendPut(
-      `/excercise/${params.id}/${params.id}/${props.dataFromParent.id}`,
-      {
-        ...values,
-      }
-    );
-    if (res.status === 200) {
+    values.exerciseId = props.dataFromParent.id;
+    const res = await sendPut(`/exercises`, {
+      ...values,
+    });
+    if (res.statusCode === 200) {
       props.getLesson();
       message.success("Cập thật thành công");
     } else {
@@ -46,7 +44,7 @@ export default function ModalEditExercise(props) {
     form.setFieldsValue({
       question: excercise.question,
       description: excercise.description,
-      testcase: excercise.testCases,
+      testcases: excercise.testCases,
     });
   }, [form, excercise]);
   return (
@@ -85,11 +83,11 @@ export default function ModalEditExercise(props) {
               <Form.Item label="Mô tả" name="description">
                 <Input />
               </Form.Item>
-              <Form.List name="testcase">
-                {(testcase, { add, remove }) => {
+              <Form.List name="testcases">
+                {(testcases, { add, remove }) => {
                   return (
                     <div>
-                      {testcase?.map((field, index) => (
+                      {testcases?.map((field, index) => (
                         <div
                           className="group"
                           style={{

@@ -51,11 +51,11 @@ export default function ModalEditUser({ data, list }) {
             <Form.Item
               name="status"
               label="Trạng thái tài khoản"
-              initialValue={data?.status}
+              initialValue={data?.verifyStatus}
             >
               <Select placeholder="Trạng tái tài khoản">
-                <Option value="0">Khoad</Option>
-                <Option value="1">Hoạt động</Option>
+                <Option value="1">Khóa</Option>
+                <Option value="2">Hoạt động</Option>
               </Select>
             </Form.Item>
             <div

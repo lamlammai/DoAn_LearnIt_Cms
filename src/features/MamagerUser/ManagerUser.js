@@ -30,6 +30,21 @@ function ManagerUser() {
       width: "30%",
     },
     {
+      title: "Trạng thái",
+      dataIndex: "verifyStatus",
+      key: "verifyStatus",
+      width: "30%",
+      render: (_, record) => (
+        <>
+          {record?.verifyStatus == 1
+            ? "Đang hoạt động"
+            : record?.verifyStatus == 0
+            ? "Chưa kích hoạt"
+            : "Bị khóa"}
+        </>
+      ),
+    },
+    {
       title: "Action",
       key: "action",
       width: "25%",
