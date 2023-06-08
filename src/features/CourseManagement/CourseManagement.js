@@ -130,11 +130,17 @@ function CourseManagement() {
     }
   };
   const listCourse = async () => {
-    const res = await sendGet("/courses");
-    if (res.statusCode === 200) {
-      setData(res.returnValue.data);
-    } else {
-      message.error("Cập nhật khóa học thất bại");
+    try {
+      const res = await sendGet("/courses");
+      if (res.statusCode === 200) {
+        setData(res.returnValue.data);
+      } else {
+        message.error("Cập nhật khóa học thất bại");
+      }
+    } catch (error) {
+      if (error.response?.status == 406) {
+        message.error("Tài quản Mod không có quyền thao tác chức năng này");
+      }
     }
   };
   useEffect(() => {

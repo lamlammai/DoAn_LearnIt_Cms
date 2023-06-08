@@ -51,6 +51,17 @@ function ManagerAdmin() {
       key: "roles",
       dataIndex: "role",
       width: "10%",
+      render: (_, record) => (
+        <>
+          {record.role == "MOD" ? (
+            <>
+              {record.role}- {record.permision?.level}
+            </>
+          ) : (
+            "ADMIN"
+          )}
+        </>
+      ),
     },
     {
       title: "Trạng thái",
@@ -77,9 +88,14 @@ function ManagerAdmin() {
               </Popconfirm>
             ) : null}
           </div>
-          <div className="action" style={{ backgroundColor: "rgb(255 79 32)" }}>
-            <ModalEditAdmin data={record} list={listAdmin} />
-          </div>
+          {record?.role == "MOD" && (
+            <div
+              className="action"
+              style={{ backgroundColor: "rgb(255 79 32)" }}
+            >
+              <ModalEditAdmin data={record} list={listAdmin} />
+            </div>
+          )}
         </Space>
       ),
     },
@@ -98,11 +114,17 @@ function ManagerAdmin() {
     }
   };
   const listAdmin = async () => {
-    const res = await sendGet("/admin");
-    if (res.statusCode === 200) {
-      setData(res.returnValue?.data?.data);
-    } else {
-      message.error("Cập nhật Admin thất bại");
+    try {
+      const res = await sendGet("/admin");
+      if (res.statusCode === 200) {
+        setData(res.returnValue?.data?.data);
+      } else {
+        message.error("Cập nhật Admin thất bại");
+      }
+    } catch (error) {
+      if (error.response?.status == 406) {
+        message.error("Tài quản Mod không có quyền thao tác chức năng này");
+      }
     }
   };
   useEffect(() => {

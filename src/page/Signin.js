@@ -10,15 +10,19 @@ import { useHistory } from "react-router-dom";
 export default function SignIn() {
   const history = useHistory();
   const onFinish = async (values) => {
-    const add = await sendPost("/auth/admin-login", values);
-    if (add.statusCode === 200) {
-      setToken(add.returnValue.data.accessToken);
-      setRefreshToken(add.returnValue.data.refreshToken);
-      history.push("/");
-      setTimeout(() => {
-        message.success("Đăng nhập thành công");
-      }, 2000);
-    } else {
+    try {
+      const add = await sendPost("/auth/admin-login", values);
+      if (add.statusCode === 200) {
+        setToken(add.returnValue.data.accessToken);
+        setRefreshToken(add.returnValue.data.refreshToken);
+        history.push("/");
+        setTimeout(() => {
+          message.success("Đăng nhập thành công");
+        }, 2000);
+      } else {
+        message.error("Tài khoản không tồn tại");
+      }
+    } catch (error) {
       message.error("Tài khoản không tồn tại");
     }
   };

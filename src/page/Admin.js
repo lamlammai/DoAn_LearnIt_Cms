@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Table, Tag } from "antd";
+import { Row, Col, Table, Tag, message } from "antd";
 import { Chart } from "react-google-charts";
 import LayoutAdmin from "../components/LayoutAdmin/LayoutAdmin";
 import { sendGet } from "../utils/api";
@@ -63,7 +63,9 @@ function Admin() {
         setInfo(res?.returnValue?.data);
       }
     } catch (error) {
-      console.log(error);
+      if (error.response?.status == 406) {
+        message.error("Tài quản Mod không có quyền thao tác chức năng này");
+      }
     }
   };
   const transaction = async () => {
@@ -102,7 +104,6 @@ function Admin() {
     transaction();
     chart();
   }, []);
-  console.log("chat", chat);
   return (
     <>
       <LayoutAdmin>

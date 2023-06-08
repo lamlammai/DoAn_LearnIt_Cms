@@ -69,7 +69,7 @@ function ManagerUser() {
   ];
 
   const handleDelete = async (key) => {
-    let res = await sendDelete(`/user/${key}`);
+    let res = await sendDelete(`/users/${key}`);
     if (res.statusCode === 200) {
       message.success("Xóa tài khoản thàn công");
       await listUser();
@@ -78,11 +78,17 @@ function ManagerUser() {
     }
   };
   const listUser = async () => {
-    const res = await sendGet("/users");
-    if (res.statusCode === 200) {
-      setData(res.returnValue?.data?.data);
-    } else {
-      message.error("Cập nhật User thất bại");
+    try {
+      const res = await sendGet("/users");
+      if (res.statusCode === 200) {
+        setData(res.returnValue?.data?.data);
+      } else {
+        message.error("Cập nhật User thất bại");
+      }
+    } catch (error) {
+      if (error.response?.status == 406) {
+        message.error("Tài quản Mod không có quyền thao tác chức năng này");
+      }
     }
   };
   useEffect(() => {

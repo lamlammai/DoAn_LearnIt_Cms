@@ -24,11 +24,15 @@ export default function ModalEditUser({ data, list }) {
   };
   const onFinish = async (values) => {
     setIsModalVisible(false);
-    await sendPut(`/admin`, {
+    const res = await sendPut(`/admin`, {
       level: parseInt(values.role),
       status: values.status,
       modId: data?.id,
     });
+    if (res.statusCode == 200) {
+      await list();
+      message.success("Cập nhật quyền thành công");
+    }
     await list();
   };
   const { Option } = Select;
@@ -73,7 +77,6 @@ export default function ModalEditUser({ data, list }) {
                 <Option value="1">Mod L.1</Option>
                 <Option value="2">Mod L.2</Option>
                 <Option value="3">Mod L.3</Option>
-                <Option value="4">Mod L.4</Option>
               </Select>
             </Form.Item>
             <Collapse onChange={onChange}>

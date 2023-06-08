@@ -109,13 +109,19 @@ function UnprocessPost() {
     }
   };
   const pendingTopic = async () => {
-    const res = await sendGet("/posts/admin", {
-      status: "PENDING",
-    });
-    if (res.statusCode === 200) {
-      setData(res.returnValue?.data?.data);
-    } else {
-      message.error("Lỗi kĩ thuật");
+    try {
+      const res = await sendGet("/posts/admin", {
+        status: "PENDING",
+      });
+      if (res.statusCode === 200) {
+        setData(res.returnValue?.data?.data);
+      } else {
+        message.error("Lỗi kĩ thuật");
+      }
+    } catch (error) {
+      if (error.response?.status == 406) {
+        message.error("Tài quản Mod không có quyền thao tác chức năng này");
+      }
     }
   };
   useEffect(() => {

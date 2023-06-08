@@ -211,7 +211,11 @@ export default function Report() {
         message.error("Lỗi kĩ thuật");
       }
     } catch (error) {
-      message.error("Lỗi kĩ thuật");
+      if (error.response?.status == 406) {
+        message.error("Tài quản Mod không có quyền thao tác chức năng này");
+      } else {
+        message.error("Có lỗi hệ thống");
+      }
     }
   };
   useEffect(() => {

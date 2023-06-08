@@ -40,7 +40,7 @@ export default function ModalEditUser({ data, list }) {
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
           >
-            <Form.Item label="Họ tên" name="name" initialValue={data?.name}>
+            <Form.Item label="Họ tên" name="name" initialValue={data?.username}>
               <Input disabled={true} />
             </Form.Item>
 
@@ -54,8 +54,8 @@ export default function ModalEditUser({ data, list }) {
               initialValue={data?.verifyStatus}
             >
               <Select placeholder="Trạng tái tài khoản">
-                <Option value="1">Khóa</Option>
-                <Option value="2">Hoạt động</Option>
+                <Option value="2">Khóa</Option>
+                <Option value="1">Hoạt động</Option>
               </Select>
             </Form.Item>
             <div
